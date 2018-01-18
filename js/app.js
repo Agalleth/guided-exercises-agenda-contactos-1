@@ -1,10 +1,36 @@
 
   //Traer elementos del HTML
+  var $name = $('#name-input');
   
+  var $number = $('#phone-input');
   
-  var loadPage = function () {
+ 
+  // var loadPage = function () {
     
-  };
+  // };
+  function loadPage () {
+    $('.modal').modal()
+    $name.keyup(validateCont);
+    $number.keyup(validateCont);
+  }
+
+  function validateCont() {
+    //En esta funcion tenemos que validar que el usuario ingrese datos y no valores vacios
+    // if ($number.val().length === 0) {
+    //   var $button = $('#add-contact')
+    //   $button.prop('disabled', true);
+    // }
+    // else {
+    //   $button.prop('disabled', false);
+    // }
+    // var $button = $('#add-contact')
+
+    if ($(this).val().trim().length > 0) {
+      $('#add-contact').removeAttr('disabled')
+    } else {
+      $('#add-contact').attr('disabled', true)
+    }
+  }
 
   var paintContactsInHTML = function(contact) {
    
@@ -40,9 +66,9 @@
   
 
 
-  var validateContact = function () {
-    //En esta funcion tenemos que validar que el usuario ingrese datos y no valores vacios
-  };
+  // var validateContact = function () {
+  //   //En esta funcion tenemos que validar que el usuario ingrese datos y no valores vacios
+  // };
 
 
   var filterContacts = function() {
